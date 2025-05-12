@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Message {
+  id         String    @id @default(cuid())
+  type       String
+  data       Json
+  senderId   String?   @map("sender_id")
+  sender     Json?
+  receiverId String?   @map("receiver_id")
+  receiver   Json?
+  groupId    String?   @map("group_id")
+  group      Json?
+  createTime DateTime  @default(now()) @map("create_time")
+  updateTime DateTime? @map("update_time")
+  readTime   DateTime? @map("read_time")
+
+  @@map("messages")
+}
