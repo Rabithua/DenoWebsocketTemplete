@@ -1,4 +1,4 @@
-import { ProfileType } from "./profile.ts";
+import { Profile } from "./profile.ts";
 
 export type Group = {
   shortName?: string;
@@ -12,5 +12,5 @@ export type Group = {
 export type GroupMember = {
   profile_link: string;
   role: "creator" | "manager" | "member";
-  profile?: ProfileType;
+  profile?: Profile;
 };
