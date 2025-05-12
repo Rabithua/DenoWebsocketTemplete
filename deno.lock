@@ -1,0 +1,28 @@
+{
+  "version": "5",
+  "specifiers": {
+    "npm:zod-to-ts@*": "1.2.0_typescript@5.8.3_zod@3.24.4",
+    "npm:zod@*": "3.24.4"
+  },
+  "npm": {
+    "typescript@5.8.3": {
+      "integrity": "sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==",
+      "bin": true
+    },
+    "zod-to-ts@1.2.0_typescript@5.8.3_zod@3.24.4": {
+      "integrity": "sha512-x30XE43V+InwGpvTySRNz9kB7qFU8DlyEy7BsSTCHPH1R0QasMmHWZDCzYm6bVXtj/9NNJAZF3jW8rzFvH5OFA==",
+      "dependencies": [
+        "typescript",
+        "zod"
+      ]
+    },
+    "zod@3.24.4": {
+      "integrity": "sha512-OdqJE9UDRPwWsrHjLN2F8bPxvwJBK22EHLWtanu0LSYr5YqzsaaW3RMgmjwr8Rypg5k+meEJdSPXJZXE/yqOMg=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@1"
+    ]
+  }
+}
