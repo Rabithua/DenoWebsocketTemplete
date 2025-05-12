@@ -6,7 +6,7 @@ export function onOpenHandler(
   id: string,
   token: string,
 ) {
-  console.log(`Connection opened from ${id} (User: ${token})`);
+  console.info(`Connection opened from ${id} (User: ${token})`);
 
   // 将新连接添加到连接池
   connections.set(id, { user: token, socket });
@@ -18,23 +18,16 @@ export function onOpenHandler(
       .entries()
   ) {
     if (user === token && clientSocket !== socket) {
-      try {
-        const message: Message = {
-          sender: "system",
-          type: "systemMessage",
-          data: {
-            type: "deviceOnline",
-            device: "need device info type here",
-          },
-        };
-        clientSocket.send(JSON.stringify(message));
-        console.log(`Message sent to ${connectionId} (User: ${user})`);
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : String(err);
-        console.error(
-          `Failed to send message to ${connectionId}: ${errorMessage}`,
-        );
-      }
+      const message: Message = {
+        sender: "system",
+        type: "systemMessage",
+        data: {
+          type: "deviceOnline",
+          device: "need device info type here",
+        },
+      };
+      clientSocket.send(JSON.stringify(message));
+      console.log(`Message sent to ${connectionId} (User: ${user})`);
     }
   }
 }
